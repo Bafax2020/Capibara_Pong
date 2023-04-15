@@ -43,10 +43,24 @@ clock = time.Clock()
 FPS = 60
 
 game = True
+end = False
+
+#спрайты и тэкст
+racketa1 = Player("rak.png",13,250,3,50,120)
+racketa2 = Player("rak.png",640,250,3,50,120)
 
 while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+
+
+    if end != True:
+        racketa1.update_L()
+        racketa2.update_R()
+        racketa1.reset()
+        racketa2.reset()
+
+
     display.update()
     clock.tick(FPS)
